@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1s
 WorkingDirectory=/home/ubuntu/
-ExecStart=/home/ubuntu/prysm/prysm.sh beacon-chain --p2p-host-ip=89.145.160.193 --p2p-max-peers=129
+ExecStart=/home/ubuntu/prysm/prysm.sh beacon-chain --p2p-host-ip=0.0.0.0 --p2p-max-peers=100
 
 [Install]
 WantedBy=default.target
