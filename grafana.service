@@ -1,0 +1,15 @@
+[Unit]
+Description=service to start the Grafana monitoring and alerting software
+After=network.target
+
+[Service]
+User=ubuntu
+Type=simple
+Restart=always
+RestartSec=1s
+WorkingDirectory=/home/ubuntu/grafana-6.7.3/bin/
+ExecStart=/home/ubuntu/grafana-6.7.3/bin/grafana-server
+
+[Install]
+WantedBy=default.target
+

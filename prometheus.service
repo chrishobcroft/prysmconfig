@@ -1,0 +1,15 @@
+[Unit]
+Description=service to start Prometheus service to capture data published by the Validator and Beacon services
+After=network.target
+
+[Service]
+User=ubuntu
+Type=simple
+Restart=always
+RestartSec=1s
+WorkingDirectory=/home/ubuntu/
+ExecStart=/home/ubuntu//prometheus-2.18.1.linux-amd64/prometheus --config.file=/home/ubuntu//prometheus-2.18.1.linux-amd64/prometheus.yml --storage.tsdb.retention.time=31d
+
+[Install]
+WantedBy=default.target
+
