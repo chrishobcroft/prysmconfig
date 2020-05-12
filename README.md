@@ -2,7 +2,9 @@
 
 To store config and notes about how to build and operate an ETH 2.0 Beacon and Validator node
 
-## Get a server
+## Running Beacon and Validator (Single Server)
+
+### Get a server
 
 Best is to do it on your localhost.
 - then you'll need to be logged in as a user called `ubuntu` with sudo privileges, or edit the files
@@ -14,7 +16,7 @@ Also maybe try Digital Ocean
 
 Open ports `22`, `13000`, `3000` in the firewall to allow INGRESS `tcp` connections
 
-## Commands
+### Commands
 
 ```
 cd ~
@@ -26,6 +28,8 @@ sudo apt dist-upgrade -y
 mkdir prysm && cd prysm 
 
 curl https://raw.githubusercontent.com/prysmaticlabs/prysm/master/prysm.sh --output prysm.sh && chmod +x prysm.sh 
+
+cd ~
 
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/beacon.service
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/validator.service
@@ -39,11 +43,10 @@ sudo systemctl enable /etc/systemd/system/validator.service
 sudo systemctl enable /etc/systemd/system/prometheus.service
 sudo systemctl enable /etc/systemd/system/grafana.service
 
-cd ~
-
 wget https://github.com/prometheus/prometheus/releases/download/v2.18.1/prometheus-2.18.1.linux-amd64.tar.gz
 
 tar -zxvf prometheus-2.18.1.linux-amd64.tar.gz
+rm prometheus-2.18.1.linux-amd64.tar.gz
 
 cd prometheus-2.18.1.linux-amd64
 rm prometheus.yml
@@ -53,6 +56,7 @@ cd ~
 wget https://dl.grafana.com/oss/release/grafana-6.7.3.linux-amd64.tar.gz
 
 tar -zxvf grafana-6.7.3.linux-amd64.tar.gz
+rm grafana-6.7.3.linux-amd64.tar.gz
 
 sudo reboot
 ```
