@@ -14,9 +14,16 @@ Medium (4GB, 2 x 2198 MHz, 50 GB)
 
 Also maybe try Digital Ocean
 
-Open ports `22`, `13000`, `3000` in the firewall to allow INGRESS `tcp` connections
+## Network Settings
 
-### Commands
+Open the following ports in the firewall to allow INGRESS `tcp` connections:
+
+- `22` - to allow `ssh` connections
+- `13000` - to allow improved p2p connectivity
+- `3000` - to allow remote access to Grafana
+- `4000` - to allow remote access to the Beacon Node
+
+## Installation Commands
 
 ```
 cd ~
