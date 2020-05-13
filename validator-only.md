@@ -2,10 +2,7 @@
 
 ### Get a server
 
-Best is to do it on your localhost.
-- then you'll need to be logged in as a user called `ubuntu` with sudo privileges, or edit the files
-
-Currently trying it on a Micro 512Mb RAM
+It will work on a "Micro" instance, with 512Mb RAM and 1 vCPU - however you will need to add 300Mb of swap, for keygen, raw txn data gen, and validator process startup.
 
 ## Network Settings
 
