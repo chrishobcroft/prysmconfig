@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1s
 WorkingDirectory=/home/ubuntu/
-ExecStart=/home/ubuntu/prysm/prysm.sh validator --password=changeme --enable-account-metrics
+ExecStart=/home/ubuntu/prysm/prysm.sh validator --password=changeme --enable-account-metrics --beacon-rpc-provider 127.0.0.1:4000 --graffiti="hello world"
 
 [Install]
 WantedBy=default.target
