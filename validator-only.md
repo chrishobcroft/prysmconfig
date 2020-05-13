@@ -22,7 +22,7 @@ sudo echo
 sudo apt update -y
 sudo apt upgrade -y
 
-sudo fallocate -l 1G /swapfile
+sudo fallocate -l 300M /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
