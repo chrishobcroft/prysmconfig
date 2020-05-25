@@ -64,6 +64,27 @@ wget https://dl.grafana.com/oss/release/grafana-6.7.3.linux-amd64.tar.gz
 tar -zxvf grafana-6.7.3.linux-amd64.tar.gz
 rm grafana-6.7.3.linux-amd64.tar.gz
 
+sudo fallocate -l 4G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo nano /etc/fstab
+```
+Add this to `/etc/fstab`
+```
+/swapfile swap swap defaults 0 0
+```
+then continue
+```
+sudo systemctl start grafana.service
+sudo systemctl start prometheus.service
+```
+
+- log in to http://{ip-address}:3000/login admin/admin (first time load will be slow)
+  - add a **Prometheus** data source with URL `http://localhost:9090` and click "Save & Test" to see "Data source is working"
+  - import new dashboard from here: https://github.com/GuillaumeMiralles/prysm-grafana-dashboard#creatingimporting-dashboards
+
+```
 sudo reboot
 ```
 
@@ -78,10 +99,6 @@ sudo journalctl -f --unit=validator.service
 sudo journalctl -f --unit=prometheus.service
 sudo journalctl -f --unit=grafana.service
 ```
-
-- log in to http://{ip-address}:3000/login admin/admin (first time load will be slow)
-  - add a **Prometheus** data source with URL `http://localhost:9090` and click "Save & Test" to see "Data source is working"
-  - import new dashboard using this as json https://raw.githubusercontent.com/GuillaumeMiralles/prysm-grafana-dashboard/master/more_10_validators.json
 
 - Wait for beacon node to sync
 
