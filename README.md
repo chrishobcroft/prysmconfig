@@ -26,10 +26,19 @@ Open the following ports in the firewall to allow INGRESS `tcp` connections:
 ## Installation Commands
 
 ```
-cd ~
-sudo echo
-sudo apt update -y
-sudo apt upgrade -y
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo nano /etc/fstab
+```
+Add this to `/etc/fstab`
+```
+/swapfile swap swap defaults 0 0
+```
+then continue
+```
+sudo apt update -y && sudo apt upgrade -y
 
 mkdir prysm && cd prysm 
 
@@ -64,18 +73,6 @@ wget https://dl.grafana.com/oss/release/grafana-6.7.3.linux-amd64.tar.gz
 tar -zxvf grafana-6.7.3.linux-amd64.tar.gz
 rm grafana-6.7.3.linux-amd64.tar.gz
 
-sudo fallocate -l 4G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo nano /etc/fstab
-```
-Add this to `/etc/fstab`
-```
-/swapfile swap swap defaults 0 0
-```
-then continue
-```
 sudo systemctl start grafana.service
 sudo systemctl start prometheus.service
 ```
