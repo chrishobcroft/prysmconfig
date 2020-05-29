@@ -10,7 +10,7 @@ Best is to do it on your localhost.
 - then you'll need to be logged in as a user called `ubuntu` with sudo privileges, or edit the files
 
 Exoscale
-Medium (4GB, 2 x 2198 MHz, 50 GB)
+Medium (512Mb, 1 x 2198 MHz, 10 GB)
 
 Also maybe try Digital Ocean
 
@@ -26,7 +26,7 @@ Open the following ports in the firewall to allow INGRESS `tcp` connections:
 ## Installation Commands
 
 ```
-sudo fallocate -l 2G /swapfile
+sudo fallocate -l 8G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -43,6 +43,11 @@ sudo apt update -y && sudo apt upgrade -y
 mkdir prysm && cd prysm 
 
 curl https://raw.githubusercontent.com/prysmaticlabs/prysm/master/prysm.sh --output prysm.sh && chmod +x prysm.sh 
+
+./prysm.sh validator accounts create
+```
+Make deposits at https://prylabs.net/participate
+```
 
 cd ~
 
