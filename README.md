@@ -59,6 +59,7 @@ wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/grafana.
 sudo mv *.service /etc/systemd/system
 
 sudo systemctl enable /etc/systemd/system/beacon.service
+
 sudo systemctl enable /etc/systemd/system/validator.service
 sudo systemctl enable /etc/systemd/system/prometheus.service
 sudo systemctl enable /etc/systemd/system/grafana.service
