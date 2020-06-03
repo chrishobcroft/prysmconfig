@@ -7,8 +7,8 @@ User=ubuntu
 Type=simple
 Restart=always
 RestartSec=1s
-WorkingDirectory=/home/ubuntu/grafana-6.7.3/bin/
-ExecStart=/home/ubuntu/grafana-6.7.3/bin/grafana-server
+WorkingDirectory=/home/ubuntu/grafana/
+ExecStart=/home/ubuntu/grafana/grafana-7.0.1/bin/grafana-server
 
 [Install]
 WantedBy=default.target
