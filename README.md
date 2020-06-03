@@ -64,6 +64,8 @@ sudo systemctl enable /etc/systemd/system/validator.service
 sudo systemctl enable /etc/systemd/system/prometheus.service
 sudo systemctl enable /etc/systemd/system/grafana.service
 
+mkdir ~/prometheus
+cd ~/prometheus
 wget https://github.com/prometheus/prometheus/releases/download/v2.18.1/prometheus-2.18.1.linux-amd64.tar.gz
 
 tar -zxvf prometheus-2.18.1.linux-amd64.tar.gz
@@ -72,12 +74,13 @@ rm prometheus-2.18.1.linux-amd64.tar.gz
 cd prometheus-2.18.1.linux-amd64
 rm prometheus.yml
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/prometheus.yml
-cd ~
 
-wget https://dl.grafana.com/oss/release/grafana-6.7.3.linux-amd64.tar.gz
+mkdir ~/grafana
+cd ~/grafana
+wget https://dl.grafana.com/oss/release/grafana-7.0.1.linux-amd64.tar.gz
 
-tar -zxvf grafana-6.7.3.linux-amd64.tar.gz
-rm grafana-6.7.3.linux-amd64.tar.gz
+tar -zxvf grafana-7.0.1.linux-amd64.tar.gz
+rm grafana-7.0.1.linux-amd64.tar.gz
 
 sudo systemctl start grafana.service
 sudo systemctl start prometheus.service
