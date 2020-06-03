@@ -53,19 +53,22 @@ cd ~
 
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/beacon.service
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/validator.service
-wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/prometheus.service
-wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/grafana.service
 
 sudo mv *.service /etc/systemd/system
 
 sudo systemctl enable /etc/systemd/system/beacon.service
-
 sudo systemctl enable /etc/systemd/system/validator.service
-sudo systemctl enable /etc/systemd/system/prometheus.service
-sudo systemctl enable /etc/systemd/system/grafana.service
 
-mkdir ~/prometheus
-cd ~/prometheus
+
+
+
+
+
+wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/prometheus.service
+sudo mv prometheus.service /etc/systemd/system
+
+sudo systemctl enable /etc/systemd/system/prometheus.service
+
 wget https://github.com/prometheus/prometheus/releases/download/v2.18.1/prometheus-2.18.1.linux-amd64.tar.gz
 
 tar -zxvf prometheus-2.18.1.linux-amd64.tar.gz
@@ -75,15 +78,21 @@ cd prometheus-2.18.1.linux-amd64
 rm prometheus.yml
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/prometheus.yml
 
-mkdir ~/grafana
-cd ~/grafana
+sudo systemctl start prometheus.service
+
+
+
+
+wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/grafana.service
+sudo mv grafana.service /etc/systemd/system
+sudo systemctl enable /etc/systemd/system/grafana.service
+
 wget https://dl.grafana.com/oss/release/grafana-7.0.1.linux-amd64.tar.gz
 
 tar -zxvf grafana-7.0.1.linux-amd64.tar.gz
 rm grafana-7.0.1.linux-amd64.tar.gz
 
 sudo systemctl start grafana.service
-sudo systemctl start prometheus.service
 ```
 
 - log in to http://{ip-address}:3000/login admin/admin (first time load will be slow)
