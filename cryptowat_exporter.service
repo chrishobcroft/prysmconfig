@@ -1,0 +1,16 @@
+[Unit]
+Description=service to start the cryptowat_exporter process on this machine.
+After=network.target
+
+[Service]
+User=ubuntu
+Type=simple
+Restart=always
+RestartSec=1s
+WorkingDirectory=/home/ubuntu/
+ExecStart=/home/ubuntu/cryptowat_exporter/cryptowat_exporter --cryptowat.pairs=etheur,ethusd,ethgbp,ethbtc,ethczk --cryptowat.exchanges=kraken
+
+
+[Install]
+WantedBy=default.target
+

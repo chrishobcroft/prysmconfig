@@ -119,6 +119,21 @@ sudo systemctl start grafana.service
   - import new dashboard from here: https://github.com/GuillaumeMiralles/prysm-grafana-dashboard#creatingimporting-dashboards
 
 ```
+
+curl -OL https://github.com/nbarrientos/cryptowat_exporter/archive/e4bcf6e16dd2e04c4edc699e795d9450dee486ab.zip
+unzip e4bcf6e16dd2e04c4edc699e795d9450dee486ab.zip
+mv cryptowat_exporter-e4bcf6e16dd2e04c4edc699e795d9450dee486ab/ cryptowat_exporter
+rm e4bcf6e16dd2e04c4edc699e795d9450dee486ab.zip
+cd cryptowat_exporter
+go build
+
+wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/cryptowat_exporter.service
+sudo mv cryptowat_exporter.service /etc/systemd/system
+sudo systemctl enable /etc/systemd/system/grafana.service
+sudo systemctl start /etc/systemd/system/grafana.service
+
+
+
 sudo reboot
 ```
 
