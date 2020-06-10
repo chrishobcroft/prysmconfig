@@ -49,7 +49,8 @@ Add this to .profile
 ```
 export PATH=$PATH:/usr/local/go/bin
 ```
-
+and then continue:
+```
 cd ~
 git clone git@github.com:prysmaticlabs/prysm.git
 
@@ -60,7 +61,8 @@ go build
 cd ~/prysm/slasher
 go build
 
-./prysm.sh validator accounts create
+cd ~/prysm/validator
+./validator accounts create
 ```
 Make deposits at https://prylabs.net/participate
 ```
