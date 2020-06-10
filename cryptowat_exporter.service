@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1s
 WorkingDirectory=/home/ubuntu/
-ExecStart=/home/ubuntu/cryptowat_exporter/cryptowat_exporter --cryptowat.pairs=etheur,ethusd,ethgbp,ethbtc,ethczk --cryptowat.exchanges=kraken
+ExecStart=/home/ubuntu/cryptowat_exporter/cryptowat_exporter --cryptowat.pairs=etheur,ethusd,ethgbp,ethcad,ethchf,ethjpy,ethbtc --cryptowat.exchanges=kraken
 
 
 [Install]

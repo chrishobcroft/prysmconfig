@@ -129,8 +129,9 @@ go build
 
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/cryptowat_exporter.service
 sudo mv cryptowat_exporter.service /etc/systemd/system
-sudo systemctl enable /etc/systemd/system/grafana.service
-sudo systemctl start /etc/systemd/system/grafana.service
+sudo systemctl enable /etc/systemd/system/cryptowat_exporter.service
+sudo systemctl start cryptowat_exporter.service
+sudo journalctl -f --unit=cryptowat_exporter.service
 
 
 
