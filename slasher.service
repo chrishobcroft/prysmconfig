@@ -1,0 +1,15 @@
+[Unit]
+Description=service to start the ETH 2.0 Slasher Node on this machine.
+After=network.target
+
+[Service]
+User=ubuntu
+Type=simple
+Restart=always
+RestartSec=1s
+WorkingDirectory=/home/ubuntu/
+ExecStart=/home/ubuntu/prysm/slasher/slasher
+
+[Install]
+WantedBy=default.target
+
