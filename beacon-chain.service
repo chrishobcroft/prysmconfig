@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1s
 WorkingDirectory=/home/ubuntu/
-ExecStart=/bin/sh -c '/home/ubuntu/prysm/prysm.sh beacon-chain --p2p-host-ip=$(curl -s v4.ident.me) --p2p-max-peers=100 --dev'
+ExecStart=/bin/sh -c '/home/ubuntu/prysm/beacon-chain/beacon-chain --p2p-host-ip=$(curl -s v4.ident.me) --p2p-max-peers=100 --dev --skip-regen-historical-states'
 
 [Install]
 WantedBy=default.target

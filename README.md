@@ -39,10 +39,26 @@ Add this to `/etc/fstab`
 then continue
 ```
 sudo apt update -y && sudo apt upgrade -y
+wget https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
+rm go1.14.4.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+sudo nano ~/.profile
+```
+Add this to .profile
+```
+export PATH=$PATH:/usr/local/go/bin
+```
 
-mkdir prysm && cd prysm 
+cd ~
+git clone git@github.com:prysmaticlabs/prysm.git
 
-curl https://raw.githubusercontent.com/prysmaticlabs/prysm/master/prysm.sh --output prysm.sh && chmod +x prysm.sh 
+cd ~/prysm/beacon-chain
+go build
+cd ~/prysm/validator
+go build
+cd ~/prysm/slasher
+go build
 
 ./prysm.sh validator accounts create
 ```
@@ -53,12 +69,13 @@ cd ~
 
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/beacon.service
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/validator.service
+wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/slasher.service
 
 sudo mv *.service /etc/systemd/system
 
 sudo systemctl enable /etc/systemd/system/beacon.service
 sudo systemctl enable /etc/systemd/system/validator.service
-
+sudo systemctl enable /etc/systemd/system/slasher.service
 
 
 
@@ -111,6 +128,7 @@ Notes
 ```
 sudo journalctl -f --unit=beacon.service
 sudo journalctl -f --unit=validator.service
+sudo journalctl -f --unit=slasher.service
 sudo journalctl -f --unit=prometheus.service
 sudo journalctl -f --unit=grafana.service
 ```
