@@ -23,7 +23,7 @@ Open the following ports in the firewall to allow INGRESS `tcp` connections:
 - `3000` - to allow remote access to Grafana
 - `4000` - to allow remote access to the Beacon Node
 
-# Very Quick Start - Developer - Prysmatic Labs Ethereum 2.0 Client
+# Very Quick Start
 
 ```
 sudo apt -y install wget git tar g++
