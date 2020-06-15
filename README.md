@@ -23,6 +23,35 @@ Open the following ports in the firewall to allow INGRESS `tcp` connections:
 - `3000` - to allow remote access to Grafana
 - `4000` - to allow remote access to the Beacon Node
 
+# Very Quick Start - Developer - Prysmatic Labs Ethereum 2.0 Client
+
+```
+sudo apt -y install wget git tar g++
+
+wget https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
+git clone https://github.com/prysmaticlabs/prysm.git
+cd prysm/beacon-chain
+/usr/local/go/bin/go run main.go
+```
+
+Tested on clean @Exoscale `Ubuntu 20.04 LTS` image with `2GB` RAM (no swap), `2 x 2198 MHz` CPU
+
+## Quick Start
+```
+sudo apt update
+sudo apt -y upgrade
+sudo apt -y install build-essential
+
+wget https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+git clone https://github.com/prysmaticlabs/prysm.git
+cd prysm/beacon-chain
+go build
+./beacon-chain
+```
+
 ## Installation Commands
 
 ```
