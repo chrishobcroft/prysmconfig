@@ -55,7 +55,7 @@ go build
 ## Installation Commands
 
 ```
-sudo fallocate -l 8G /swapfile
+sudo fallocate -l 2G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -98,7 +98,7 @@ Make deposits at https://prylabs.net/participate
 
 cd ~
 
-wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/beacon.service
+wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/beacon-chain.service
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/validator.service
 wget https://raw.githubusercontent.com/chrishobcroft/prysmconfig/master/slasher.service
 
