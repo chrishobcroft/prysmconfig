@@ -1,5 +1,7 @@
 # Very Quick Start - Prysmatic Labs Ethereum 2.0 Client
 
+Run the following 6 commands to get started running Ethereum 2.0 on your Linux computer:
+
 ```
 sudo apt -y install wget git tar g++
 
@@ -10,7 +12,7 @@ cd prysm/beacon-chain
 /usr/local/go/bin/go run main.go
 ```
 
-Explained:
+The commands explained:
 
 ```
 sudo apt -y install wget git tar g++
