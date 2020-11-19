@@ -7,8 +7,8 @@ User=ubuntu
 Type=simple
 Restart=always
 RestartSec=1s
-WorkingDirectory=/home/ubuntu/
-ExecStart=/bin/sh -c '/home/ubuntu/prysm/beacon-chain/beacon-chain --p2p-host-ip=$(curl -s v4.ident.me) --p2p-max-peers=100 --dev --skip-regen-historical-states'
+WorkingDirectory=/home/ubuntu/prysm
+ExecStart=/bin/sh -c '/home/ubuntu/prysm/prysm.sh beacon-chain --http-web3provider=https://goerli.infura.io/v3/12b32b466c6a40c089b286a31748d0fc --pyrmont --accept-terms-of-use --verbosity=info --p2p-max-peers=99 --p2p-host-ip=194.182.179.18'
 
 [Install]
 WantedBy=default.target
